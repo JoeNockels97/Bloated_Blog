@@ -1,0 +1,377 @@
+/* ==========================================================
+   EcoMega™ — deliberately excessive CSS
+   STUDENT TASK: Try changing this file and observe the result.
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Comic Neue", cursive;
+  background:
+    radial-gradient(circle at 10% 20%, #fff700 0 4%, transparent 5%),
+    radial-gradient(circle at 80% 30%, #00ffff 0 5%, transparent 6%),
+    linear-gradient(135deg, #ff00cc, #00ff99 30%, #ffff00 55%, #7700ff 80%, #ff3300);
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* Deliberately distracting scrolling banner */
+.ticker {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #000;
+  color: #39ff14;
+  padding: 15px;
+  font-family: "Bungee", sans-serif;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: tickerGlow 0.7s infinite alternate;
+}
+
+.hero {
+  min-height: 92vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  isolation: isolate;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 5%;
+  border: 20px dotted #ff00ff;
+  border-radius: 50%;
+  transform: rotate(12deg);
+  animation: spin 18s linear infinite;
+  z-index: -2;
+}
+
+.hero::after {
+  inset: 12%;
+  border: 14px dashed #00ffff;
+  transform: rotate(-12deg);
+  animation-duration: 11s;
+}
+
+.hero-content {
+  width: min(900px, 95vw);
+  padding: 70px 30px;
+  text-align: center;
+  background: rgba(255,255,255,0.85);
+  border: 12px solid #ff1493;
+  border-radius: 40px;
+  box-shadow:
+    0 0 0 12px #00ffff,
+    0 0 0 25px #ffff00,
+    0 30px 90px rgba(0,0,0,0.5);
+  transform: rotate(-1deg);
+  animation: wobble 3s ease-in-out infinite;
+}
+
+.tiny-warning {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Bungee", sans-serif;
+  font-size: clamp(4rem, 13vw, 10rem);
+  line-height: 0.8;
+  color: #ff006e;
+  text-shadow:
+    5px 5px #00ffff,
+    10px 10px #ffff00,
+    15px 15px #7a00ff;
+  animation: rainbow 4s linear infinite;
+}
+
+h1 span {
+  font-family: "Pacifico", cursive;
+  font-size: 2rem;
+  vertical-align: top;
+}
+
+h2 {
+  font-family: "Pacifico", cursive;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  text-shadow: 3px 3px white;
+}
+
+.hero-intro {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+}
+
+.hero-video {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: 2%;
+  bottom: 2%;
+  object-fit: cover;
+  border: 12px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 50px #ff00ff;
+  animation: orbit 6s ease-in-out infinite;
+  z-index: 5;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+button {
+  border: 6px solid #000;
+  background: #ffff00;
+  padding: 18px 25px;
+  font-family: "Bungee", sans-serif;
+  cursor: pointer;
+  box-shadow: 8px 8px 0 #ff00ff;
+  transition: all 0.2s;
+}
+
+button:hover {
+  transform: scale(1.15) rotate(3deg);
+  background: #00ffff;
+}
+
+.chaos-section,
+.gallery-section,
+.statistics,
+.interactive-section {
+  padding: 80px 5vw;
+  border-top: 15px double #000;
+  border-bottom: 15px double #000;
+}
+
+.chaos-section {
+  background: linear-gradient(45deg, #00ff00, #00ffff, #ff00ff, #ffff00);
+  background-size: 500% 500%;
+  animation: movingBackground 9s ease infinite;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+}
+
+.card {
+  min-height: 360px;
+  padding: 30px;
+  border: 10px solid;
+  background: rgba(255,255,255,0.92);
+  box-shadow: 20px 20px 0 rgba(0,0,0,0.8);
+  transform: rotate(var(--rotation));
+  animation: float 2s ease-in-out infinite alternate;
+}
+
+.card-one { --rotation: -2deg; border-color: #ff006e; }
+.card-two { --rotation: 3deg; border-color: #00aaff; animation-delay: .2s; }
+.card-three { --rotation: -4deg; border-color: #00aa00; animation-delay: .4s; }
+.card-four { --rotation: 2deg; border-color: #7700ff; animation-delay: .6s; }
+
+.huge-emoji {
+  font-size: 6rem;
+  text-align: center;
+  animation: spin 4s linear infinite;
+}
+
+.card h3 {
+  font-family: "Bungee", sans-serif;
+  font-size: 1.7rem;
+}
+
+.image-wall {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.image-wall img {
+  width: 100%;
+  min-height: 350px;
+  object-fit: cover;
+  border: 15px solid white;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  transition: transform .3s, filter .3s;
+}
+
+.image-wall img:nth-child(odd) {
+  transform: rotate(-3deg);
+}
+
+.image-wall img:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.image-wall img:hover {
+  transform: scale(1.15) rotate(0);
+  filter: saturate(3) contrast(1.3);
+  z-index: 10;
+}
+
+.statistics {
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.stat {
+  min-width: 240px;
+  padding: 35px;
+  border: 8px solid #39ff14;
+  box-shadow: 0 0 35px #39ff14;
+}
+
+.stat span {
+  display: block;
+  font-family: "Bungee", sans-serif;
+  font-size: 4rem;
+  color: #39ff14;
+}
+
+.stat small {
+  font-family: "Roboto", sans-serif;
+}
+
+.interactive-section {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #ff00cc,
+      #ff00cc 20px,
+      #00ffff 20px,
+      #00ffff 40px
+    );
+}
+
+.experiment-box {
+  max-width: 900px;
+  margin: 35px auto;
+  padding: 35px;
+  background: rgba(255,255,255,.95);
+  border: 10px solid #000;
+  box-shadow: 15px 15px 0 #ffff00;
+}
+
+.experiment-box code {
+  background: #000;
+  color: #39ff14;
+  padding: 5px 10px;
+}
+
+.challenge {
+  animation: pulse 1.2s infinite alternate;
+}
+
+#message {
+  padding: 20px;
+  font-family: "Pacifico", cursive;
+  font-size: 2rem;
+  background: #ffff00;
+}
+
+footer {
+  padding: 80px 20px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  background: #000;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* ==========================================================
+   Deliberately excessive animations
+   STUDENT TASK: Which could be removed or reduced?
+   ========================================================== */
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rainbow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-1deg) scale(1); }
+  50% { transform: rotate(1deg) scale(1.02); }
+}
+
+@keyframes float {
+  from { transform: translateY(0) rotate(var(--rotation)); }
+  to { transform: translateY(-18px) rotate(calc(var(--rotation) * -1)); }
+}
+
+@keyframes orbit {
+  0% { transform: translate(0,0) rotate(0); }
+  50% { transform: translate(-80px,-50px) rotate(180deg); }
+  100% { transform: translate(0,0) rotate(360deg); }
+}
+
+@keyframes movingBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
+}
+
+@keyframes tickerGlow {
+  from { box-shadow: 0 0 5px #39ff14; }
+  to { box-shadow: 0 0 35px #39ff14; }
+}
+
+/* A small concession to usability on smaller screens */
+@media (max-width: 900px) {
+  .card-grid,
+  .image-wall {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-video {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-grid,
+  .image-wall {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding: 40px 15px;
+  }
+}
