@@ -1,6 +1,5 @@
 /* ==========================================================
-   EcoMega™ — deliberately excessive CSS
-   STUDENT TASK: Try changing this file and observe the result.
+ Try changing this file and observe the result.
    ========================================================== */
 
 * {
@@ -307,8 +306,7 @@ footer {
 }
 
 /* ==========================================================
-   Deliberately excessive animations
-   STUDENT TASK: Which could be removed or reduced?
+   Deliberately excessive animations; Which could be removed or reduced?
    ========================================================== */
 
 @keyframes spin {
