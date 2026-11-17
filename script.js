@@ -82,6 +82,11 @@ document.querySelector(".button-row").appendChild(animationButton);
 animationButton.addEventListener("click", function () {
   animationsEnabled = !animationsEnabled;
 
+  document.body.classList.toggle(
+  "animations-enabled",
+  animationsEnabled
+);
+
   animationButton.textContent = animationsEnabled
     ? "DISABLE ANIMATIONS"
     : "ENABLE ANIMATIONS";
