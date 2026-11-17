@@ -1,4 +1,4 @@
-
+```javascript
 let energy = 0;
 let clicks = 0;
 
@@ -6,11 +6,29 @@ let clicks = 0;
 const energyCounter = document.getElementById("energyCounter");
 const clickCounter = document.getElementById("clickCounter");
 const planetCounter = document.getElementById("planetCounter");
-const message = document.getElementById("message");
+
+// Create a message area if one doesn't already exist
+let message = document.getElementById("message");
+
+if (!message) {
+  message = document.createElement("p");
+  message.id = "message";
+  message.textContent = "Welcome to Bloated Blog!";
+  document.querySelector(".hero-content").appendChild(message);
+}
 
 const energyButton = document.getElementById("energyButton");
 const themeButton = document.getElementById("themeButton");
 const surpriseButton = document.getElementById("surpriseButton");
+
+// Surprise messages
+const surprises = [
+  "Congratulations! Your website is unnecessarily busy!",
+  "More pixels! More problems!",
+  "The planet is definitely impressed. Probably.",
+  "Have you considered using fewer images?",
+  "Welcome to the world of digital excess!"
+];
 
 // Button 1: deliberately pointless repeated updates
 energyButton.addEventListener("click", function () {
@@ -21,7 +39,9 @@ energyButton.addEventListener("click", function () {
 
   clicks += 1;
   clickCounter.textContent = clicks;
-  message.textContent = "Congratulations! You generated 100 energy points.";
+
+  message.textContent =
+    "Congratulations! You generated 100 energy points.";
 });
 
 // Button 2: repeatedly changes styles
@@ -32,13 +52,13 @@ themeButton.addEventListener("click", function () {
   document.body.style.filter =
     "hue-rotate(" + Math.floor(Math.random() * 360) + "deg)";
 
-  message.textContent = "The entire website has coloured. Again.";
+  message.textContent = "The entire website has changed colour. Again.";
 });
 
-];
-
+// Button 3: surprise message
 surpriseButton.addEventListener("click", function () {
   const randomNumber = Math.floor(Math.random() * surprises.length);
+
   message.textContent = surprises[randomNumber];
 
   clicks += 1;
@@ -51,7 +71,8 @@ setInterval(function () {
 
   // Deliberately cause a visual update.
   document.querySelectorAll(".card").forEach(function (card) {
-    card.style.borderRadius = Math.floor(Math.random() * 50) + "px";
+    card.style.borderRadius =
+      Math.floor(Math.random() * 50) + "px";
   });
 }, 500);
 
@@ -62,10 +83,12 @@ document.querySelectorAll(".card-button").forEach(function (button) {
     clickCounter.textContent = clicks;
 
     message.textContent =
-      "You clicked: " + button.textContent + ". That was unnecessary, but fun!";
+      "You clicked: " + button.textContent +
+      ". That was unnecessary, but fun!";
   });
 });
 
 // Log information to the console for students to inspect.
 console.log("EcoMega™ JavaScript loaded.");
 console.log("Try opening Developer Tools and looking at the Console.");
+```
